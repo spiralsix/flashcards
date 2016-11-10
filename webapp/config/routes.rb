@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :cards
   resources :decks
   resources :users
@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#splash'
 
+  devise_scope :users do
+    get 'user_log_out_route/sign_out', :to => 'devise/sessions#destroy'
+  end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

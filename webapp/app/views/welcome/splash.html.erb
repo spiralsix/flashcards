@@ -1,0 +1,6 @@
+  <a class="fblogin btn btn-lg" href="/users/auth/facebook">
+    Login
+  </a>
+<% if current_user %>
+  <%= current_user.email %>
+<% end %>
