@@ -1,6 +1,33 @@
-  <a class="fblogin btn btn-lg" href="/users/auth/facebook">
-    Login
-  </a>
-<% if current_user %>
-  <%= current_user.email %>
-<% end %>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+
+<div class="container" id='sign-up-form'>
+<form action="#" class="form-horizontal">
+  <% if current_user %>
+    <%= current_user.email %>
+    <a href="/user_log_out_route/sign_out" class="btn btn-block btn-social">Log out</a>
+  <% else %>
+    <%= form_for(User.new, :url => new_user_registration_path) do |f| %>
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password %>
+        <%= f.password_field :password, class: 'form-control' %>
+      </div>
+
+        <%= f.submit 'Sign up' , class: 'btn btn-lg btn-primary' %>
+
+    <% end %>
+
+    <a href="/users/auth/facebook" class="btn btn-primary" style="width:30%;"><i class="fa fa-facebook"></i>Sign in with Facebook</a>
+  <% end %>
+  </form>
+</div>
