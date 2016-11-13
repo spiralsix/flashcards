@@ -1,4 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_deck_path(@deck) %> |
-<%= link_to 'Back', decks_path %>
+<%= render :partial => '/decks/play' %>
+
+
+<hr>
+
+
+<% if current_user.id == @deck.user_id %>
+  <%= link_to 'Edit', edit_deck_path(@deck) %> |
+  <%= link_to 'Back', decks_path %>
+<% end %>
