@@ -1,8 +1,11 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :authenticate_user_signed_in, only: [:show]
   # GET /users
   # GET /users.json
+
+
   def index
     @users = User.all
   end
@@ -67,6 +70,12 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
 
+    def authenticate_user_signed_in
+      if params[:id].to_i != current_user.id
+        render :html => 'Not allowed'
+        return
+      end
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.fetch(:user, {})

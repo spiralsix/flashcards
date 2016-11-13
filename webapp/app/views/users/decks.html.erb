@@ -1,0 +1,5 @@
+<h2>My Decks</h2>
+
+<% current_user.decks.each do |deck| %>
+  <%= render :partial => '/decks/deck_list', :locals => { :deck => deck} %>
+<% end %>
