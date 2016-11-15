@@ -13,12 +13,20 @@ var QuizList = React.createClass({
       url: '/decks/' + id + '/get_list_of_cards',
     })
     .done(function(data) {
-      console.log(data);
       that.setState({list: data})
     })
   },
   componentDidMount: function (){
     this.getCardsList();
+    $('body').on('click', '.answer-link', function(event) {
+      event.preventDefault();
+      var element = $(this).parent().find('.answer-container')
+      if (element.css('display') == 'block') {
+        element.fadeOut(500, function() {});
+      } else{
+        element.fadeIn(500, function() {});
+      };
+    });
   },
   render: function() {
     return (
