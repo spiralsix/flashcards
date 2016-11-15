@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :cards
-  resources :decks
+  resources :decks do
+    member do
+      get 'get_list_of_cards'
+    end
+  end
+
   resources :users do
     member do
       get 'decks'
