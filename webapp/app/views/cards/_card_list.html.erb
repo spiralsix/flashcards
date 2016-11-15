@@ -1,0 +1,6 @@
+<div class="list-group-cards">
+  <h2><%= @deck.name %></h2>
+  <% deck.cards.each do |card| %>
+    <%= render :partial => "/cards/card_display", :locals => { :card => card } %>
+  <% end %>
+</div>

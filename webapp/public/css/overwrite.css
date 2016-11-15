@@ -1,6 +1,18 @@
-.list-group {
+.list-group-decks {
   padding-left: 0;
   margin-bottom: 20px;
   width: 20%;
   display: inline-flex;
+}
+
+.right-controls {
+  position: relative;
+  float: right;
+}
+
+.answer-container {
+  background-color: #fff5f5;
+  padding: 3px;
+  padding-left: 10%;
+  display: none;
 }
