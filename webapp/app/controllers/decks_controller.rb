@@ -1,5 +1,5 @@
 class DecksController < ApplicationController
-  before_action :set_deck, only: [:show, :edit, :update, :destroy]
+  before_action :set_deck, only: [:show, :edit, :update, :destroy, :get_list_of_cards]
   # layout 'decks'
   # GET /decks
   # GET /decks.json
@@ -10,6 +10,10 @@ class DecksController < ApplicationController
   # GET /decks/1
   # GET /decks/1.json
   def show
+  end
+
+  def get_list_of_cards
+    render :partial => "/cards/card_list", :locals => { :deck => @deck }
   end
 
   # GET /decks/new

@@ -1,6 +1,9 @@
+
+<script src="https://unpkg.com/react@15/dist/react.js"></script>
+<script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+
 <div class="panel">
-  <QuizList deck='<%= deck.id %>' />
-  <%= render :partial => "/cards/card_list", :locals => { :deck => @deck } %>
+    <div id="content" deck-id="<%= deck.id %>"></div>
 </div>
 
 
@@ -29,7 +32,3 @@
 
   </div>
 </div>
-<script src="https://unpkg.com/react@15/dist/react.js"></script>
-<script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
-
-<script src="/js/play.js"></script>
