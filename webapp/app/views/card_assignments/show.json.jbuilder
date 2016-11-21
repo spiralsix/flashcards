@@ -1,0 +1,1 @@
+json.partial! "card_assignments/card_assignment", card_assignment: @card_assignment

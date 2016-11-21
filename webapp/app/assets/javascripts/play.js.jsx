@@ -6,7 +6,6 @@ var QuizList = React.createClass({
       })
     },
   getCardsList: function (){
-    var html = "list of shit";
     var id = this.props.deck;
     var that = this;
     $.ajax({
@@ -36,9 +35,11 @@ var QuizList = React.createClass({
 });
 
 $(document).ready(function() {
-  var id = $('#content').attr('deck-id');
-  ReactDOM.render(
-    <QuizList deck={id} />,
-    document.getElementById('content')
-  );
+  if ($('#deck-content') != null) {
+    var id = $('#deck-content').attr('deck-id');
+    ReactDOM.render(
+      <QuizList deck={id} />,
+      document.getElementById('deck-content')
+    );
+  };
 });

@@ -11,10 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161110034650) do
+ActiveRecord::Schema.define(version: 20161121033232) do
+
+  create_table "card_assignments", force: :cascade do |t|
+    t.integer  "card_id"
+    t.integer  "deck_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "cards", force: :cascade do |t|
-    t.integer  "deck_id"
     t.string   "name"
     t.string   "question"
     t.string   "answer"
@@ -22,12 +28,26 @@ ActiveRecord::Schema.define(version: 20161110034650) do
     t.boolean  "shared"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
 
   create_table "decks", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "name"
     t.text     "desc"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "taggings", force: :cascade do |t|
+    t.integer  "tag_id"
+    t.integer  "card_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

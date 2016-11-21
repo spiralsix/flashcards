@@ -1,6 +1,6 @@
 <div class="list-group-cards">
   <h2><%= @deck.name %></h2>
-  <% deck.cards.each do |card| %>
-    <%= render :partial => "/cards/card_display", :locals => { :card => card } %>
+  <% deck.card_assignments.each do |card_assignment| %>
+    <%= render :partial => "/cards/card_display", :locals => { :card => card_assignment.card } %>
   <% end %>
 </div>
