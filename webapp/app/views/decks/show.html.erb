@@ -2,11 +2,9 @@
 
 <%= render :partial => '/decks/play', :locals => { :deck => @deck } %>
 
-
 <hr>
 
 
 <% if current_user.id == @deck.user_id %>
-  <%= link_to 'Edit', edit_deck_path(@deck) %> |
-  <%= link_to 'Back', decks_path %>
+  <h2>Add questions</h2>
 <% end %>

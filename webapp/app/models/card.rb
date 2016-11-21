@@ -1,7 +1,4 @@
 class Card < ActiveRecord::Base
-  belongs_to :deck
+  has_many :card_assignments, :class_name => 'CardAssignment'
 
-  def splash
-
-  end
 end

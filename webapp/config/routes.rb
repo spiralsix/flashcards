@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :taggings
+  resources :tags
+  resources :card_assignments
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :cards
   resources :decks do

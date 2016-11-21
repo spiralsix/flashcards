@@ -25,6 +25,7 @@ class CardsController < ApplicationController
   # POST /cards.json
   def create
     @card = Card.new(card_params)
+    @card.user_id = current_user.id
 
     respond_to do |format|
       if @card.save
@@ -69,6 +70,6 @@ class CardsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def card_params
-      params.fetch(:card, {})
+      params.require(:card).permit(:name, :question, :answer)
     end
 end
